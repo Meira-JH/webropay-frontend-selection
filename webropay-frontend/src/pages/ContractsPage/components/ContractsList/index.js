@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from 'react'
 import {
   ContractsListWrapper,
   ListHeader,
@@ -50,6 +50,14 @@ const ContractsList = (props) => {
   ];
 
   const fields = ["Contrato", "Descrição", "Status"];
+
+    const [currentUser, setCurrentUser] = useState()
+
+  useEffect(() => {
+
+  }, [])
+
+  
 
   const listTitledRender = fields.map((field, index) => (
     <ListField details={field} key={index}>
