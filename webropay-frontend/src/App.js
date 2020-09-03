@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import ContractsPage from "./pages/ContractsPage";
 import store from "./store";
+import './App.css'
 
 export default function App() {
 

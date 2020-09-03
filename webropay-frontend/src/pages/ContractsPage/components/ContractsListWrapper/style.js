@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  grid-template-rows: 1fr;
+  padding: 0 96px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 export const TitleWrapper = styled.div`
@@ -17,7 +19,8 @@ export const TitleWrapper = styled.div`
 export const Title = styled.span`
   text-align: left;
   font-family: Roboto;
-  font: normal normal 900 30px/33px Roboto;
+  font-weight: 900;
+  font-size: 33px;
   letter-spacing: 0px;
   color: #122659;
   text-shadow: 0px 3px 6px #00000029;

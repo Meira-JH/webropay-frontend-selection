@@ -6,12 +6,13 @@ import {
   ListEdit,
   ListField,
   ListTitle,
+  ListText,
 } from "./style";
 import editIcon from "../../../../img/lapis.svg";
 import axios from "axios";
 
 const ContractsList = (props) => {
-  const fields = ["Contrato", "Descrição", "Status"];
+  const fields = ["Contrato", "Descrição", "Status", "Editar"];
 
   const [currentContracts, setCurrentContracts] = useState();
 
@@ -34,16 +35,22 @@ const ContractsList = (props) => {
     currentContracts.map((item, itemIndex) => (
       <ListItem key={itemIndex}>
         <ListField>
-          <span> {item.id} </span>
+          <ListText> {item.id} </ListText>
         </ListField>
         <ListField>
-          <span> {item.description} </span>
+          <ListText> {item.description} </ListText>
         </ListField>
         <ListField>
-          <span> {item.status} </span>
+          <ListText> {item.status === true ? "aberto" : "fechado"} </ListText>
         </ListField>
         <ListField>
-          <img src={editIcon} />
+          <div>
+            <img
+              src={editIcon}
+              alt="Edit icon"
+              onClick={() => props.showEditContractProps(item)}
+            />
+          </div>
         </ListField>
       </ListItem>
     ))
@@ -53,12 +60,7 @@ const ContractsList = (props) => {
 
   return (
     <ContractsListWrapper>
-      <ListHeader>
-        {listTitledRender}
-        <ListField>
-          <ListEdit> </ListEdit>
-        </ListField>
-      </ListHeader>
+      <ListHeader>{listTitledRender}</ListHeader>
       {listTextRender}
     </ContractsListWrapper>
   );

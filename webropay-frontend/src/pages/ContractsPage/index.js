@@ -1,19 +1,45 @@
-import React from 'react'
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import {ContractsPageWrapper} from "./style"
-import Header from '../Header';
-import ContractsWrapper from './components/ContractsWrapper';
+import { ContractsPageWrapper } from "./style";
+import Header from "../Header";
+import ContractsListWrapper from "./components/ContractsListWrapper";
+import AddContractWindow from "./components/AddContractWindow";
+import EditContractWindow from "./components/EditContractWidow";
 
 const ContractsPage = (props) => {
+  const [showAddContract, setShowAddContract] = useState(false);
+  const [showEditContract, setShowEditContract] = useState(false);
+  const [contractState, setContract] = useState();
 
-  const history = useHistory()
+  const history = useHistory();
 
+  function handleAddContract() {
+    setShowAddContract(!showAddContract);
+  }
+
+  function handleEditContract(contract) {
+    console.log(contract)
+    setContract(contract);
+    setShowEditContract(!showEditContract);
+  }
   return (
     <ContractsPageWrapper>
-        <Header />
-        <ContractsWrapper />
+      <Header />
+      <ContractsListWrapper
+        showAddContract={handleAddContract}
+        showEditContract={handleEditContract}
+      />
+      <AddContractWindow
+        show={showAddContract}
+        closeAddContract={handleAddContract}
+      />
+      <EditContractWindow
+        contractProps = {contractState}
+        show={showEditContract}
+        closeEditContract={handleEditContract}
+      />
     </ContractsPageWrapper>
-  )
-}
+  );
+};
 
-export default ContractsPage
+export default ContractsPage;
