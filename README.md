@@ -59,6 +59,8 @@ Execute the application:
 npm start 
 ```
 
+Obs: the API's CORS is configured to accept requests only from "Access-Control-Allow-Origin: http://localhost:3030"
+
 ## Code architecture :computer:
 
 This code was designed concerned with JS best practices. The source folder was divided in pages and img.
