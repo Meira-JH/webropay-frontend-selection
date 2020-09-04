@@ -5,4 +5,5 @@ export const ContractsPageWrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  min-width: 500px;
 `;

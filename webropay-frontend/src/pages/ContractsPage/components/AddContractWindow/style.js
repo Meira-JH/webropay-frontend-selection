@@ -4,7 +4,7 @@ export const Container = styled.div`
   position: fixed;
   z-index: 3;
   top: 20%;
-  right: 40%;
+  right: 30%;
   width: 50%;
   max-width: 500px;
   min-width: 400px;
@@ -19,7 +19,7 @@ export const Container = styled.div`
   ${(props) =>
     !props.show &&
     css`
-      right: -50%;
+      right: -130%;
     `}
 `;
 
