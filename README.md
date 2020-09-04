@@ -19,10 +19,6 @@ This is the front-end page of a full-stack activity proposed by WebroPay as part
 <p>
 <img height="22px" src="https://github.com/Meira-JH/futureEats/blob/master/futureEats/src/imgs/JSLibReactJS.png"/>
 </p>
-<p>
-<img height="22px" src="https://github.com/Meira-JH/futureEats/blob/master/futureEats/src/imgs/layout.png"/>
-</p>
-
 
 <p  style="font-size:5px; text-align:left">
 <i>Icons by <a href="https://github.com/jalbertsr/logo-badge-images">Joan Albert</a></i>
