@@ -47,6 +47,11 @@ Install dependencies:
 npm install
 ```
 
+ATTENTION! 
+```
+Before executing the application, go to react-scripts folder, inside node_modules, and change the default port (set as _const DEFAULT_PORT = parseInt(process.env.PORT, 10) || **3000**;_) to 3030. This will avoid port conflict with the API of the project, in case of development local running.
+```
+
 Execute the application:
 ```
 npm start 
