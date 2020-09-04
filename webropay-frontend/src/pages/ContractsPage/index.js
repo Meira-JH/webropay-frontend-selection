@@ -5,6 +5,7 @@ import Header from "../Header";
 import ContractsListWrapper from "./components/ContractsListWrapper";
 import AddContractWindow from "./components/AddContractWindow";
 import EditContractWindow from "./components/EditContractWidow";
+import Footer from "../Footer";
 
 const ContractsPage = (props) => {
   const [showAddContract, setShowAddContract] = useState(false);
@@ -38,6 +39,7 @@ const ContractsPage = (props) => {
         show={showEditContract}
         closeEditContract={handleEditContract}
       />
+      <Footer />
     </ContractsPageWrapper>
   );
 };

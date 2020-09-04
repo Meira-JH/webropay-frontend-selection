@@ -16,12 +16,13 @@ const ContractsList = (props) => {
 
   const [currentContracts, setCurrentContracts] = useState();
 
+  async function getContracts() {
+    const response = await axios.get(`http://localhost:3000/contracts`);
+    setCurrentContracts(response.data);
+    console.log("get contracts", response.data);
+  }
+
   useEffect(() => {
-    async function getContracts() {
-      const response = await axios.get(`http://localhost:3000/contracts`);
-      setCurrentContracts(response.data);
-      console.log("get contracts", response.data);
-    }
     getContracts();
   }, []);
 

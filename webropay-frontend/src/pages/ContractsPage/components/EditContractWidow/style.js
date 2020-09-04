@@ -40,27 +40,27 @@ export const ContractForm = styled.div`
   align-items: center;
   padding-top: 20px;
 
-  label{
-    width: 100%
+  label {
+    width: 100%;
   }
 `;
 
 export const StyledInput = styled.textarea`
-    text-align: flex-start;
-    width: 100%;
-    height: 80px;
-    margin: 15px 0;
-    border: 1px solid #e5e5e5;
-`
+  resize: none;
+  text-align: flex-start;
+  width: 100%;
+  height: 80px;
+  margin: 15px 0;
+  border: 1px solid #e5e5e5;
+`;
 
 export const StyledSelect = styled.select`
-    text-align: flex-start;
-    width: 100%;
-    height: 30px;
-    margin: 15px 0;
-    border: 1px solid #e5e5e5;
-`
-
+  text-align: flex-start;
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  border: 1px solid #e5e5e5;
+`;
 
 export const Title = styled.p`
   box-sizing: border-box;
@@ -75,6 +75,16 @@ export const Title = styled.p`
   text-shadow: 0px 3px 6px #00000029;
   text-transform: uppercase;
   opacity: 1;
+`;
+
+export const SuccessMessage = styled.span`
+  padding-bottom: 15px;
+  color: #122659;
+`;
+
+export const ErrorMessage = styled.span`
+  padding-bottom: 15px;
+  color: red;
 `;
 
 export const ExitButton = styled(Title)`

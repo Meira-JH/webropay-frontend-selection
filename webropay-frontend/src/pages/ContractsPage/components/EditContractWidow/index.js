@@ -8,6 +8,8 @@ import {
   Overlay,
   StyledInput,
   StyledSelect,
+  SuccessMessage,
+  ErrorMessage,
 } from "./style";
 import EditButton from "../EditButton";
 import axios from "axios";
@@ -16,11 +18,16 @@ const EditContractWindow = (props) => {
   const [description, setDescription] = useState();
   const [status, setStatus] = useState();
   const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   useEffect(() => {
     if (props.contractProps) {
       setDescription(props.contractProps.description);
     }
+    console.log(
+      "verificando id edit",
+      props.contractProps ? props.contractProps.id : ""
+    );
   }, []);
 
   function handleOnChange(event) {
@@ -35,11 +42,24 @@ const EditContractWindow = (props) => {
   function submitContract(event) {
     event.preventDefault();
     const body = { description, status };
-    console.log(body);
+    console.log(body, props.contractProps.id);
+    if (!body.description || !body.status) {
+      setErrorMessage(true);
+    }
     if (body.description && body.status) {
+      setErrorMessage(false);
       try {
-        axios.put(`http://localhost:3000/contract/${props.contractProps.id}`, body);
-        setSuccessMessage(true);
+        axios.put(
+          `http://localhost:3000/contract/${
+            props.contractProps ? props.contractProps.id : ""
+          }`,
+          body
+        );
+        function closeWindow() {
+            return props.closeEditContract;
+        }
+        closeWindow();
+        window.location.reload();
       } catch (error) {
         console.error(error);
       }
@@ -55,7 +75,16 @@ const EditContractWindow = (props) => {
         </Header>
         <ContractForm>
           <Title>Editar Contrato</Title>
-          {successMessage ? <span>Contrato editado!</span> : ""}
+          {successMessage ? (
+            <SuccessMessage>Contrato editado!</SuccessMessage>
+          ) : (
+            ""
+          )}
+          {errorMessage ? (
+            <ErrorMessage>Preencha os campos corretamente!</ErrorMessage>
+          ) : (
+            ""
+          )}
           <label name="description">
             Descrição:
             <StyledInput

@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper, TitleWrapper, Title, ContractListWrapper } from "./style";
+import { Wrapper, TitleWrapper, Title } from "./style";
 import AddButton from "../AddButton";
 import ContractsList from "../ContractsList";
 

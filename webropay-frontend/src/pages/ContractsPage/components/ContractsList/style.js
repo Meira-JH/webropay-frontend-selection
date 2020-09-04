@@ -69,12 +69,13 @@ export const ListTitle = styled.span`
 `;
 
 export const ListText = styled.span`
-  height: auto;
+  height: 100%;
   padding-left: 20px;
   text-align: left;
   font-family: Roboto, sans-serif;
-  font: normal normal normal 16px/25px;
+  font-size: 16px;
   letter-spacing: 0.15px;
   color: #666666;
   opacity: 1;
+
 `;

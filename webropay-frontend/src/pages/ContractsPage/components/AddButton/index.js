@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Add from '../../../../img/add.svg'
+import Add from "../../../../img/add.svg";
 
 const AddButtonWrapper = styled.div`
   margin-left: 44px;
@@ -25,8 +25,8 @@ const AddLogo = styled.img`
 
 const AddButton = (props) => {
   return (
-    <AddButtonWrapper onClick={props.showAddContractProps} >
-      <AddLogo src={Add}/>
+    <AddButtonWrapper onClick={props.showAddContractProps}>
+      <AddLogo src={Add} />
       <span>Adicionar</span>
     </AddButtonWrapper>
   );

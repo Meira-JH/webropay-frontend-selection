@@ -8,6 +8,8 @@ import {
   Overlay,
   StyledInput,
   StyledSelect,
+  SuccessMessage,
+  ErrorMessage
 } from "./style";
 import AddButtonForm from "../AddButtonForm";
 import axios from "axios";
@@ -16,6 +18,7 @@ const AddContractWindow = (props) => {
   const [description, setDescription] = useState();
   const [status, setStatus] = useState();
   const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   function handleOnChange(event) {
     if (event.target.name === "description") {
@@ -30,7 +33,11 @@ const AddContractWindow = (props) => {
     event.preventDefault();
     const body = { description, status };
     console.log(body);
+    if (!body.description || !body.status) {
+      setErrorMessage(true);
+    }
     if (body.description && body.status) {
+      setErrorMessage(false);
       try {
         axios.post(`http://localhost:3000/contract`, body);
         setSuccessMessage(true);
@@ -49,7 +56,8 @@ const AddContractWindow = (props) => {
         </Header>
         <ContractForm>
           <Title>Adicionar Contrato</Title>
-          {successMessage ? <span>Contrato adicionado!</span> : ""}
+          {successMessage ? <SuccessMessage>Contrato adicionado!</SuccessMessage> : ""}
+          {errorMessage ? <ErrorMessage>Preencha os campos corretamente!</ErrorMessage> : ""}
           <label name="description">
             Descrição:
             <StyledInput
